@@ -29,7 +29,7 @@ labels_train = labels_train[:len(labels_train)//100]
 #########################################################
 ### your code goes here ###
 from sklearn.svm import SVC
-clf = SVC(kernel="rbf")
+clf = SVC(kernel="rbf",C=10000)
 t0 = time()
 clf.fit(features_train,labels_train)
 print("Training time:", round(time()-t0, 3), "s")
@@ -43,4 +43,10 @@ acc = accuracy_score(labels_test,pred)
 print("Accuracy is ",acc) 
 #########################################################
 ## ACCURACY - 61.60%
-
+## Now, changing the value of C in factors of 10
+## ACCURACY for C =10 -> 61.60%
+## ACCURACY for C =100 -> 61.60%
+## ACCURACY for C =1000 -> 82.13%
+## ACCURACY for C =10000 -> 89.24%
+## ACCURACY for C =100000 -> 86.006%
+## ACCURACY for C =50000 -> 86.006%
