@@ -27,7 +27,7 @@ features_train, features_test, labels_train, labels_test = preprocess()
 #########################################################
 ### your code goes here ###
 from sklearn.svm import SVC
-clf = SVC(kernel="linear")
+clf = SVC(kernel="rbf",C=10000)
 t0 = time()
 clf.fit(features_train,labels_train)
 print("Training time:", round(time()-t0, 3), "s")
@@ -39,6 +39,11 @@ print("Testing time:", round(time()-t1, 3), "s")
 from sklearn.metrics import accuracy_score
 acc = accuracy_score(labels_test,pred)
 print("Accuracy is ",acc) 
+
+#Counting the number of Chris labels in prediction
+from collections import Counter
+print("Number of Chris prediction in the result is ",Counter(pred)[1])
 #########################################################
 
-
+## ACCURACY when kernel= linear and C = default i.e. 1 --> 98.4%
+## ACCURACY when kernel= rbf and C=10000 --> 99.08%

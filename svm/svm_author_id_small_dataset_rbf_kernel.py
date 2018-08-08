@@ -41,6 +41,7 @@ print("Testing time:", round(time()-t1, 3), "s")
 from sklearn.metrics import accuracy_score
 acc = accuracy_score(labels_test,pred)
 print("Accuracy is ",acc) 
+print("Answer to the 10th,26th and 50th element is {}, {} and {} respectively".format(pred[10],pred[26],pred[50]))
 #########################################################
 ## ACCURACY - 61.60%
 ## Now, changing the value of C in factors of 10
