@@ -42,7 +42,7 @@ from sklearn.metrics import accuracy_score
 acc = accuracy_score(labels_test,pred)
 
 print("Accuracy is ",acc)
-
+print("Number of features used",len(features_train[0]))
 
 #########################################################
 ##ACCURACY for DCT with min_sample_split=40 -> 97.78%
