@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-
+import sys
+from time import time
 import matplotlib.pyplot as plt
 from prep_terrain_data import makeTerrainData
 from class_vis import prettyPicture
@@ -31,12 +32,49 @@ plt.show()
 ### your code here!  name your classifier object clf if you want the 
 ### visualization code (prettyPicture) to show you the decision boundary
 
+### Random Forest (Def case accuracy 92 and max when n_estimators=15 at 92.8)
+"""
+from sklearn.ensemble import RandomForestClassifier
+clf = RandomForestClassifier(n_estimators = 15,)
 
+t0 = time()
+clf.fit(features_train,labels_train)
+print("Training time: ",round(time()-t0,3),"s")
 
+t1 = time()
+pred = clf.predict(features_test)
+print("Testing time: ",round(time()-t1,3),"s")
+"""
+### Naive Bayes (Accuracy 88.4%)
 
+"""
+from sklearn.naive_bayes import GaussianNB
+clf = GaussianNB()
+t0 = time()
+clf.fit(features_train,labels_train)
+print("Training time:", round(time()-t0, 3), "s")
 
+t1 = time()
+pred = clf.predict(features_test)
+print("Testing time:", round(time()-t1, 3), "s")
+"""
 
+from sklearn.svm import SVC
+clf = SVC(kernel="rbf",C=10000,gamma=0.6)
+t0 = time()
+clf.fit(features_train,labels_train)
+print("Training time:", round(time()-t0, 3), "s")
 
+t1 = time()
+pred = clf.predict(features_test)
+print("Testing time:", round(time()-t1, 3), "s")
+
+from sklearn.metrics import accuracy_score
+acc = accuracy_score(labels_test,pred)
+
+print("Accuracy is ",acc)
+
+### ACCURACY for Random Forest Classifier with all default values is ->
 
 try:
     prettyPicture(clf, features_test, labels_test)
