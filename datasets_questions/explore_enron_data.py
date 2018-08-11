@@ -17,7 +17,7 @@
 
 import pickle
 
-enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "rb"))
+enron_data = pickle.load(open("../final_project/final_project_dataset_unix.pkl", "rb"))
 print(len(enron_data))
 
 
