@@ -18,6 +18,8 @@
 import pickle
 
 enron_data = pickle.load(open("../final_project/final_project_dataset_unix.pkl", "rb"))
-print(len(enron_data))
+print("Number of people ->", len(enron_data))
+l = sum(len(i) for i in enron_data.values())
+print("Number of features for a single subject ",l//len(enron_data))
 
 
