@@ -47,4 +47,6 @@ for i in enron_data.keys():
 		n = n+1
 
 print("Number of poi's in the dataset is ",n)
-
+print("Total stock value owned by James Prentice is ",enron_data["PRENTICE JAMES"]['total_stock_value'])
+print("Total number of email to poi's by Wesley Collwell is ",enron_data["COLWELL WESLEY"]['from_this_person_to_poi'])
+print("Total stock options exercised by Jeffrey K Skilling is ",enron_data["SKILLING JEFFREY K"]['exercised_stock_options'])
