@@ -55,14 +55,17 @@ print("Total money taken by Jeffrey K Skilling is ",total_money_skilling)
 print("Total money taken by Kenneth Lay is ",total_money_lay)
 print("Total money taken by Andrew Fastow is ",total_money_fastow)
 
+
 num_quantifiable_salary = 0
-print(type(enron_data[i]["salary"]))
-
-from collections import Counter
-
-
 for i in enron_data.keys():
 	if type(enron_data[i]["salary"]) == type(1):
 		num_quantifiable_salary = num_quantifiable_salary+1
 
 print("Number of quantifiable salaries in the dataset are ",num_quantifiable_salary)
+
+num_known_email = 0
+for i in enron_data.keys():
+	if enron_data[i]["email_address"] != 'NaN':
+		num_known_email = num_known_email+1
+
+print("Number of known email addresses in the dataset are ",num_known_email)
