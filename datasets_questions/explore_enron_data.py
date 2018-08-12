@@ -14,7 +14,6 @@
     enron_data["SKILLING JEFFREY K"]["bonus"] = 5600000
     
 """
-
 import pickle
 
 enron_data = pickle.load(open("../final_project/final_project_dataset_unix.pkl", "rb"))
@@ -50,3 +49,20 @@ print("Number of poi's in the dataset is ",n)
 print("Total stock value owned by James Prentice is ",enron_data["PRENTICE JAMES"]['total_stock_value'])
 print("Total number of email to poi's by Wesley Collwell is ",enron_data["COLWELL WESLEY"]['from_this_person_to_poi'])
 print("Total stock options exercised by Jeffrey K Skilling is ",enron_data["SKILLING JEFFREY K"]['exercised_stock_options'])
+
+total_money_skilling,total_money_lay,total_money_fastow = enron_data["SKILLING JEFFREY K"]['total_payments'],enron_data["LAY KENNETH L"]['total_payments'],enron_data["FASTOW ANDREW S"]['total_payments']
+print("Total money taken by Jeffrey K Skilling is ",total_money_skilling)
+print("Total money taken by Kenneth Lay is ",total_money_lay)
+print("Total money taken by Andrew Fastow is ",total_money_fastow)
+
+num_quantifiable_salary = 0
+print(type(enron_data[i]["salary"]))
+
+from collections import Counter
+
+
+for i in enron_data.keys():
+	if type(enron_data[i]["salary"]) == type(1):
+		num_quantifiable_salary = num_quantifiable_salary+1
+
+print("Number of quantifiable salaries in the dataset are ",num_quantifiable_salary)
