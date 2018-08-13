@@ -69,3 +69,18 @@ for i in enron_data.keys():
 		num_known_email = num_known_email+1
 
 print("Number of known email addresses in the dataset are ",num_known_email)
+
+num_of_Nan_in_total_payments = 0
+for i in enron_data.keys():
+	if type(enron_data[i]["total_payments"]) == type("NaN"):
+		num_of_Nan_in_total_payments = num_of_Nan_in_total_payments+1
+
+print("Number of NaN in total_payments are ",num_of_Nan_in_total_payments)
+print("And their contribution in the dataset is ",round((num_of_Nan_in_total_payments/len(enron_data.keys()))*100,3),"%")
+
+num_of_poi_with_NaN_total_payments = 0
+for i in enron_data.keys():
+	if (type(enron_data[i]["total_payments"]) == type("NaN")) and (enron_data[i]["poi"] == True):
+		num_of_poi_with_NaN_total_payments = num_of_poi_with_NaN_total_payments+1
+
+print("Number of POIs with total payments as NaN are ",num_of_poi_with_NaN_total_payments)		
